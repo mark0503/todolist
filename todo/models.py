@@ -22,6 +22,7 @@ class Post(models.Model):
     description = models.TextField()
 
     class Meta:
+        
         ordering = ['-pub_date']
         verbose_name = 'Задачи'
         verbose_name = 'Задача'
