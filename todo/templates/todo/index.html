@@ -1,0 +1,24 @@
+{% extends "todo/../base.html" %}
+{% block title %}Задачи{% endblock %}
+{% block header %}Задачи:{% endblock %}
+{% block content %}
+<hr>
+    {% for post in posts %}
+    {% if post.types == 'H' %}
+        <h2><div class="Hard">Название: <span style="color:red">{{ post.name }}</span></div></h2>
+    {% elif post.types == 'M' %}
+        <h2><div class="Med">Название: <span style="color:orange">{{ post.name }}</span></div></h2>
+    {% else %}
+        <h2><div class="Ligth">Название: <span style="color:green">{{ post.name }}</span></div></h2>
+    {% endif %}
+    <h3>
+        Дата создания: {{ post.pub_date|date:"d M Y" }}, Дата окончания: {{ post.fin_date|date:"d M Y" }}
+    </h3>
+    <h3>
+        Статус: {{ post }}
+    </h3>
+    <p>Описание: {{ post.description|linebreaksbr }}</p>
+    {% if not forloop.last %}<hr>{% endif %}
+    {% endfor %}
+
+{% endblock %} 
