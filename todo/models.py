@@ -24,7 +24,7 @@ class Post(models.Model):
     class Meta:
         
         ordering = ['-pub_date']
-        verbose_name = 'Задачи'
+        verbose_name_plural = 'Задачи'
         verbose_name = 'Задача'
 
     def __str__(self):
